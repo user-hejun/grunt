@@ -1,0 +1,81 @@
+@import "_ui-icon";
+//retina @2x
+.sprite-width(@sprite) {
+    width: extract(@sprite, 5)/2;
+}
+
+.sprite-height(@sprite) {
+    height: extract(@sprite, 6)/2;
+}
+
+.sprite-position(@sprite) {
+    @sprite-offset-x: extract(@sprite, 3)/2;
+    @sprite-offset-y: extract(@sprite, 4)/2;
+    background-position: @sprite-offset-x @sprite-offset-y;
+}
+
+.sprite-background-size(@spritesheet-width) {
+    background-size: @spritesheet-width/2;
+}
+
+.sprite-image(@sprite) {
+    @sprite-image: extract(@sprite, 9);
+    @sprite-image-bare: ~`"@{sprite-image}".slice(1, -1)`;
+    background-image: url(@sprite-image-bare);
+}
+
+.sprite(@sprite) {
+    .sprite-image(@sprite);
+    .sprite-position(@sprite);
+    .sprite-width(@sprite);
+    .sprite-height(@sprite);
+    .sprite-background-size(@spritesheet-width);
+}
+
+//合并图
+.ui-icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.sprites(@spritesheet-sprites);
+//自定义 非合并图
+.icon-mail{
+	background-image:url(../../images/dist/mail.png);
+	background-size:100% 100%;
+}
+
+.icon-loading{
+    background-image: url(../../images/dist/loading.png);
+    width: 29px;
+    height: 29px;
+    background-size: 29px 29px;
+}
+
+
+.icon-global-fail{
+    background-image:url(../../images/dist/global-fail.png);
+    width: 92px;
+    height: 82px;
+    background-size: 92px 82px;
+}
+
+.icon-no-data{
+    background-image:url(../../images/dist/no-data.png);
+    width: 191px;
+    height: 170px;
+    background-size: 191px 170px;
+}
+
+
+.icon-yycg{
+	background-image:url(../../images/dist/yycg.png);
+	width: 146px;
+	height: 123px;
+	background-size: 146px 123px;
+}
+.icon-arrow{
+	&.highlight{
+		.icon-arrow-ht;
+	}
+}
